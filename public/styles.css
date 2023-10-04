@@ -1,8 +1,7 @@
-/* styles.css */
+/* Estilos base */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-   
 }
 
 h1 {
@@ -13,38 +12,45 @@ p {
     color: #666;
 }
 
-div{
+div {
     margin-bottom: 5px;
-    margin-top: 0px;
+    margin-top: 60px;
     padding: 30px;
 }
-img{
+
+img {
     border-radius: 1em;
-    width: fit-content;
+    max-width: 100%; /* Asegura que las imágenes no desborden en dispositivos pequeños */
 }
 
+/* Estilos para la barra de navegación */
 nav {
-    background-color: #f4f4f5;
-    color: #687a85;
-    padding: 10px 0;
-    border: 1px solid rgb(163, 163, 163);
-    border-radius: 1em;
+    position: fixed;
+    background-color: #333;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
 }
 
 nav ul li {
-    margin: 0 20px;
+    display: inline;
 }
 
 nav a {
     text-decoration: none;
-    color: #687a85;
-    font-weight: bold;
+    color: white;
 }
 
 div ul {
@@ -53,16 +59,44 @@ div ul {
 }
 
 div ul li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /* Estilo para los elementos de lista en la sección de recursos */
 div ul li a {
     text-decoration: none;
     color: #333;
+    margin-left: 5%;
+    transition: color 0.3s; /* Agrega una transición de color suave */
 }
-
+div ul li a:hover {
+    color: #33209e; /* Cambia el color al hacer hover, puedes elegir el color que desees */
+}
 /* Estilo para el texto entre paréntesis */
 div ul li span {
     color: #666;
+    margin-left: 5%;
+    cursor: default;
+}
+/* Configuración global para el desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Media query para estilos responsivos */
+@media (max-width: 768px) {
+    div {
+        margin-top: 20px; /* Ajusta el margen superior en dispositivos pequeños */
+        padding: 10px;
+    }
+
+    nav ul {
+        height: auto; /* Cambia la altura para ajustar al contenido en dispositivos pequeños */
+        flex-direction: column; /* Apila los elementos de navegación en dispositivos pequeños */
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
 }

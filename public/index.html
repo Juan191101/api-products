@@ -9,13 +9,13 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Usuarios</a></li>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#imp">Implementacion</a></li>
+            <li><a href="#rutas">Rutas</a></li>
         </ul>
     </nav>
-    <div>
-        <h1>Bienvenido a Products API!</h1>
+    <div id="inicio">
+        <h1>Bienvenido a Phone API!</h1>
         <p>Esta es una API de uso publico para poder consumirla en la creacion y
              desarrollo de tus aplicaciones, cuando precises datos falsos
         </p>
@@ -24,19 +24,25 @@
         <h1>Recursos</h1>
         <p>Actualmente Products API cuenta con los siguientes conjuntos de recursos:</p>
         <ul>
-            <li><a href="/products">/products   (27 productos)</a></li>
-            <li><a href="/users">/users   (x usuarios)</a></li>
+            <li><a href="/products">/products   <span>(27 productos)</span></a></li>
+            <li><a href="/users">/users  <span>(x usuarios)</span> </a></li>
         </ul>
     </div>
     
-    <div>
+    <div id="imp">
         <h1>Implementacion</h1>
         <img src="assets/fetch.png" alt="fetch">
     </div>
     <div>
-        <h1>Rutas</h1>
-        <ul>/products</ul>
-        <ul>/users</ul>
+        <h1 id="rutas">Rutas de products</h1>
+        <ul>
+            <li><a href="/products">/products</a>                <span>Ver todos los productos</span></li>
+            <li><a href="/products/1">/products/1</a>            <span>Ver un producto con determinado "identificador" (1-27)</span></li>
+            <li><a href="/products/screen/6.1">/products/screen/6.1</a><span>Ver producto/s con determinado tamaño de pantalla</span></li>
+            <li><a href="/products/camera/32">/products/camera/32</a><span>Ver producto/s con determinados pixeles en la cámara</span></li>
+            <li><a href="/products/ram/16">/products/ram/16</a><span>Ver producto/s con determinada cantidad de memoria ram</span></li>
+        </ul>
+        <p>Los valores finales son demostrativos, puedes intercambiarlos por otros que estén en existencia, recuerda ser preciso con la ruta del atributo "screen".</p>
     </div>
 </body>
 </html>
