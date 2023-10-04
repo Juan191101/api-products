@@ -1,0 +1,68 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+   
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+div{
+    margin-bottom: 5px;
+    margin-top: 0px;
+    padding: 30px;
+}
+img{
+    border-radius: 1em;
+    width: fit-content;
+}
+
+nav {
+    background-color: #f4f4f5;
+    color: #687a85;
+    padding: 10px 0;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 1em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #687a85;
+    font-weight: bold;
+}
+
+div ul {
+    list-style: none;
+    padding-left: 10px; /* También puedes eliminar el espacio a la izquierda */
+}
+
+div ul li {
+    margin-bottom: 10px;
+}
+
+/* Estilo para los elementos de lista en la sección de recursos */
+div ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Estilo para el texto entre paréntesis */
+div ul li span {
+    color: #666;
+}

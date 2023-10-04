@@ -10,14 +10,16 @@ const port = process.env.PORT || 3002;
 
 // middlewares
 app.use(express.json());
-app.use("/api", userRoute);
-app.use("/product", productRoute);
+app.use(express.static("public"));
+app.use("/users", userRoute);
+app.use("/products", productRoute);
 
 
 // routes
 app.get("/", (req, res) => {
-  res.send("Welcome to my API");
+  res.sendFile(__dirname + "/public/index.html");
 });
+
 
 // mongodb connection
 mongoose

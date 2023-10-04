@@ -4,7 +4,7 @@ const productSchema = require("../models/product");
 const router = express.Router();
 
 // get all products
-router.get("/products", (req, res) => {
+router.get("/", (req, res) => {
   productSchema
     .find()
     .then((data) => res.json(data))
@@ -12,7 +12,7 @@ router.get("/products", (req, res) => {
 });
 
 // Ruta para buscar un producto por el atributo "ide"
-router.get("/products/:ide", (req, res) => {
+router.get("/:ide", (req, res) => {
   const ide = req.params.ide;
   productSchema
     .findOne({ ide: ide }) // Busca un producto con el atributo "ide" igual al valor proporcionado
@@ -30,7 +30,7 @@ router.get("/products/:ide", (req, res) => {
 
 
 // Ruta para buscar un producto por el atributo "ram" con un número específico
-router.get("/products/ram/:ram", (req, res) => {
+router.get("/ram/:ram", (req, res) => {
   const ram = req.params.ram;
 
   // Utiliza una expresión regular que busque solo números exactos en el atributo "ram"
@@ -40,7 +40,7 @@ router.get("/products/ram/:ram", (req, res) => {
       if (data && data.length > 0) {
         res.json(data);
       } else {
-        res.status(404).json({ message: "Producto no encontrado" });
+        res.status(404).json({ message: `No hay productos con ${ram} GB de ram` });
       }
     })
     .catch((error) => {
@@ -49,7 +49,7 @@ router.get("/products/ram/:ram", (req, res) => {
 });
 
 // Ruta para buscar un producto por el atributo "camera" con un número específico
-router.get("/products/camera/:camera", (req, res) => {
+router.get("/camera/:camera", (req, res) => {
   const camera = req.params.camera;
 
   // Utiliza una expresión regular que busque solo números exactos en el atributo "ram"
@@ -59,7 +59,7 @@ router.get("/products/camera/:camera", (req, res) => {
       if (data && data.length > 0) {
         res.json(data);
       } else {
-        res.status(404).json({ message: "Producto no encontrado" });
+        res.status(404).json({ message: `No hay productos con ${camera} pixeles de camara` });
       }
     })
     .catch((error) => {
@@ -68,7 +68,7 @@ router.get("/products/camera/:camera", (req, res) => {
 });
 
 // Ruta para buscar un producto por el atributo "screen" con valor exacto
-router.get("/products/screen/:screen", (req, res) => {
+router.get("/screen/:screen", (req, res) => {
   let screen = req.params.screen;
 
   // Si el parámetro no incluye "PULGADAS", agrega automáticamente " PULGADAS" al final
@@ -85,7 +85,7 @@ router.get("/products/screen/:screen", (req, res) => {
         res.json(data);
       } else {
         // Si no se encuentran productos, devuelve un mensaje de error
-        res.status(404).json({ message: "Producto no encontrado" });
+        res.status(404).json({ message: `No hay productos con ${screen} de pantalla, recuerda especificar despues del punto, por ej: 6.1` });
       }
     })
     .catch((error) => {

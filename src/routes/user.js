@@ -4,7 +4,7 @@ const userSchema = require("../models/user");
 const router = express.Router();
 
 // create user
-router.post("/users", (req, res) => {
+router.post("/", (req, res) => {
   const user = userSchema(req.body);
   user
     .save()
@@ -13,7 +13,7 @@ router.post("/users", (req, res) => {
 });
 
 // get all users
-router.get("/users", (req, res) => {
+router.get("/", (req, res) => {
   userSchema
     .find()
     .then((data) => res.json(data))
@@ -21,7 +21,7 @@ router.get("/users", (req, res) => {
 });
 
 // get a user
-router.get("/users/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const { id } = req.params;
   userSchema
     .findById(id)
@@ -30,7 +30,7 @@ router.get("/users/:id", (req, res) => {
 });
 
 // delete a user
-router.delete("/users/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const { id } = req.params;
   userSchema
     .remove({ _id: id })
@@ -39,7 +39,7 @@ router.delete("/users/:id", (req, res) => {
 });
 
 // update a user
-router.put("/users/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   const { id } = req.params;
   const { name, age, email } = req.body;
   userSchema
